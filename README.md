@@ -38,6 +38,8 @@ Divisão de camadas da aplicação:
 
 ---
 
+![telas do projeto](./assets/tela.png)
+
 ## Interações Esperadas
 
 ### Cenário 001 - Criar tarefa com sucesso
