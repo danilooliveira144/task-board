@@ -1,0 +1,74 @@
+/* Centraliza o form na página com margem */
+form {
+    max-width: 800px;
+    margin: 50px auto; /* topo/baixo + centralização horizontal */
+    padding: 20px;
+  
+    /* Borda fina com leve sombra */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
+    background-color: #fff;
+  }
+  
+  /* Centraliza os elementos dentro do form */
+  form label,
+  form input,
+  form button,
+  h1 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  /* Ajuste visual dos inputs */
+  form input {
+    padding: 8px;
+    text-align: left; /* texto dentro do input fica melhor alinhado à esquerda */
+  }
+  
+  /* Botão estilizado */
+  form button {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  /* Container do grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+  
+    margin: 40px;
+    padding: 20px;
+  
+    /* Borda + sombra ao redor do grid */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo dos cards */
+  .card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+  
+    /* sombra individual */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  
+    text-align: center;
+  }
+
+  #novaTarefa {
+    width: 25%;
+    display: block;
+    margin: 30px auto;
+  }
