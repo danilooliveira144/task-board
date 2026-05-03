@@ -17,7 +17,7 @@ Criar tarefas diárias para organização pessoal.
 
 ## Arquitetura
 Divisão de camadas da aplicação:
-![Modelo da arquitetura do sistema em camadas](./public/assets/img/imagem_arquitetura_camadas.png)
+![Modelo da arquitetura do sistema em camadas](./Web/assets/img/imagem_arquitetura_camadas.png)
 
 ---
 
@@ -37,7 +37,7 @@ Divisão de camadas da aplicação:
 
 ---
 
-![telas do projeto](./public/assets/img/tela.png)
+![telas do projeto](./Web/assets/img/tela.png)
 
 ## Interações Esperadas
 
