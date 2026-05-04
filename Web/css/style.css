@@ -2,13 +2,11 @@ body {
    background-color: darkgray; 
 }
 
-/* Centraliza o form na página com margem */
 form {
     max-width: 800px;
-    margin: 50px auto; /* topo/baixo + centralização horizontal */
+    margin: 50px auto;
     padding: 20px;
   
-    /* Borda fina com leve sombra */
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -16,7 +14,6 @@ form {
     background-color: #fff;
   }
   
-  /* Centraliza os elementos dentro do form */
   form label,
   form input,
   form button,
@@ -32,19 +29,16 @@ form {
     margin-bottom: 40px;
   }
   
-  /* Ajuste visual dos inputs */
   form input {
     padding: 8px;
-    text-align: left; /* texto dentro do input fica melhor alinhado à esquerda */
+    text-align: left;
   }
   
-  /* Botão estilizado */
   form button {
     padding: 10px;
     cursor: pointer;
   }
 
-  /* Container do grid */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -53,20 +47,17 @@ form {
     margin: 40px;
     padding: 20px;
   
-    /* Borda + sombra ao redor do grid */
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     background-color: gray;
   }
   
-  /* Estilo dos cards */
   .card {
     background-color: #fff;
     padding: 15px;
     border-radius: 8px;
   
-    /* sombra individual */
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   
     text-align: center;
