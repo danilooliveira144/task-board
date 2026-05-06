@@ -9,8 +9,8 @@
 - [Telas / Componentes Principais](#telas--componentes-principais)
 - [Campos do Formulario](#campos-do-formulario)
 - [Rodando projeto via Docker](#rodando-projeto-via-docker)
-- [Comandos uteis](#comandos-uteis)
-- [Migrations](#migrations-manualmente)
+- [Comandos úteis](#comandos-uteis)
+- [Rodando as migrations manualmente](#rodando-as-migrations-manualmente)
 - [Configuracao inicial](#configuracao-inicial)
 
 ---
@@ -112,14 +112,129 @@ Divisão de camadas da aplicação:
 
 ---
 
-## 🐳 Rodando projeto via Docker
+## 🐳 Rodando o projeto com Docker
 
-### Pre-requisitos
-- Docker instalado  
-- Docker Compose instalado  
+### 📋 Pré-requisitos
 
-### Subindo o ambiente
+* Docker instalado
+* Docker Compose instalado
+
+---
+
+### 🚀 Subindo o ambiente
+
+Clone o repositório e acesse a pasta:
 
 ```bash
 git clone https://github.com/danilooliveira144/task-board.git
 cd task-board
+```
+
+Suba os containers:
+
+```bash
+docker compose -f docker/docker-compose.yml up -d --build
+```
+
+---
+
+### 🌐 Acessando a aplicação
+
+Após subir os containers:
+
+```
+http://localhost:8000
+```
+
+---
+
+### 🛠️ Comandos úteis
+
+#### Parar os containers
+
+```bash
+docker compose -f docker/docker-compose.yml down
+```
+
+#### Ver logs
+
+```bash
+docker compose -f docker/docker-compose.yml logs -f
+```
+
+#### Acessar o container
+
+```bash
+docker exec -it laravel_app bash
+```
+
+---
+
+## 🗄️ Rodando as migrations manualmente
+
+As migrations **não são executadas automaticamente** ao subir o container.
+Para rodá-las manualmente:
+
+```bash
+docker exec -it laravel_app php artisan migrate
+```
+
+---
+
+### 🔄 Rodar migrations com confirmação forçada
+
+Em ambientes onde não há interação (ex: scripts):
+
+```bash
+docker exec -it laravel_app php artisan migrate --force
+```
+
+---
+
+### 🧹 Resetar e recriar banco (cuidado ⚠️)
+
+```bash
+docker exec -it laravel_app php artisan migrate:fresh
+```
+
+---
+
+### 🌱 Rodar seeders (opcional)
+
+```bash
+docker exec -it laravel_app php artisan db:seed
+```
+
+Ou junto com migrations:
+
+```bash
+docker exec -it laravel_app php artisan migrate --seed
+```
+
+---
+
+## ⚙️ Configuração inicial
+
+Copie o `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Gere a chave da aplicação:
+
+```bash
+docker exec -it laravel_app php artisan key:generate
+```
+
+---
+
+## 🧹 Rebuild completo (sem cache)
+
+```bash
+docker compose -f docker/docker-compose.yml down
+docker compose -f docker/docker-compose.yml build --no-cache
+docker compose -f docker/docker-compose.yml up -d
+```
+
+---
