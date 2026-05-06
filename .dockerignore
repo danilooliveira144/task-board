@@ -1,0 +1,36 @@
+# Dependências PHP
+vendor
+
+# Dependências JS (se usar Node/Vite/Mix)
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Git
+.git
+.gitignore
+
+# Ambiente
+.env
+.env.*
+
+# Logs e cache do Laravel
+storage/logs
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views
+
+# Testes e tooling local
+.phpunit.result.cache
+coverage
+
+# Docker (evita copiar configs de build para a imagem)
+docker
+
+# Editor/IDE
+.vscode
+.idea
+
+# Arquivos temporários
+*.log
+*.tmp
