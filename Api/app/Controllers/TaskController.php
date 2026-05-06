@@ -42,4 +42,13 @@ class TaskController
             ]);
         }
     }
+    public function index()
+    {
+        $tasks = $this->task->all();
+
+        echo json_encode([
+            "success" => true,
+            "data" => $tasks
+        ]);
+    }
 }

@@ -37,4 +37,9 @@ class Task
             ':data_fim' => $data['data_fim'] ?? null
         ]);
     }
+    public function all()
+    {
+        $query = $this->db->query("SELECT * FROM tasks ORDER BY id DESC");
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
