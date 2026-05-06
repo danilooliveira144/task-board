@@ -1,1 +1,1 @@
-*.sqlite
+Api/database/database.sqlite

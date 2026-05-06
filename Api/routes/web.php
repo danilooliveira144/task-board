@@ -11,4 +11,6 @@ $router->post('/tasks', 'TaskController@store');
 
 $router->get('/tasks', 'TaskController@index');
 
+$router->get('/tasks', 'TaskController@index');
+
 return $router;

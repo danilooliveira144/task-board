@@ -3,38 +3,46 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Atividade</title>
 </head>
 <body>
-    <form>
+    <form id="taskForm">
 
-        <h1>Cadastrando Atividade</h1>
-        <div class="mb-3">
-          <label for="TextInput" class="form-label">Título da tarefa</label>
-          <input type="text" class="form-control" id="TextInput" placeholder="Título...">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Descrição da tarefa</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição..."></textarea>
-          </div>
-        <div class="mb-3">
-            <label for="data" class="form-label">Selecione a data de início da tarefa:</label>
-            <input type="date" class="form-control" id="data">
-          </div>
-          <div class="mb-3">
-            <label for="data" class="form-label">Selecione a data final da tarefa:</label>
-            <input type="date" class="form-control" id="data">
-          </div>
-          <a href="home.html">
-        <button type="submit" class="btn btn-success">Criar atividade</button>
+      <h1>Cadastrando Atividade</h1>
+
+      <div class="mb-3">
+          <label class="form-label">Título da tarefa</label>
+          <input type="text" class="form-control" id="title" placeholder="Título...">
+      </div>
+
+      <div class="mb-3">
+          <label class="form-label">Descrição da tarefa</label>
+          <textarea class="form-control" id="description" rows="3"></textarea>
+      </div>
+
+      <div class="mb-3">
+          <label class="form-label">Data início</label>
+          <input type="date" class="form-control" id="data_inicio">
+      </div>
+
+      <div class="mb-3">
+          <label class="form-label">Data fim</label>
+          <input type="date" class="form-control" id="data_fim">
+      </div>
+
+      <button type="submit" class="btn btn-success">
+          Criar atividade
+      </button>
+
+      <a href="home.html" class="btn btn-secondary">
+          Voltar
       </a>
-        <a href="home.html">
-        <button type="button" class="btn btn-secondary">Voltar</button>
-        </a>
-      </form>
+
+    </form>
 </body>
+<script src="./js/create-task.js"></script>
 </html>
 
