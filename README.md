@@ -2,16 +2,16 @@
 
 ## 📑 Sumário
 
-- [Objetivo da Aplicação](#objetivo-da-aplicacao)
+- [Objetivo da Aplicação](#objetivo-da-aplicação)
 - [Interacoes Esperadas](#interacoes-esperadas)
-- [Funcionalidades Principais](#funcionalidades-principais)
+- [Funcionalidades Principais](funcionalidades-principais)
 - [Arquitetura](#arquitetura)
 - [Telas / Componentes Principais](#telas--componentes-principais)
 - [Campos do Formulario](#campos-do-formulario)
-- [Rodando projeto via Docker](#rodando-projeto-via-docker)
-- [Comandos úteis](#comandos-uteis)
-- [Rodando as migrations manualmente](#rodando-as-migrations-manualmente)
-- [Configuracao inicial](#configuracao-inicial)
+- [Rodando projeto via Docker](#-rodando-o-projeto-com-docker)
+- [Comandos úteis](#%EF%B8%8F-comandos-úteis)
+- [Rodando as migrations manualmente](#%EF%B8%8F-rodando-as-migrations-manualmente)
+- [Configuracao inicial](#%EF%B8%8F-configuração-inicial)
 
 ---
 
