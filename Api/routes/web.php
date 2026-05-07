@@ -13,4 +13,6 @@ $router->get('/tasks', 'TaskController@index');
 
 $router->delete('/tasks/{id}', 'TaskController@destroy');
 
+$router->put('/tasks/{id}', 'TaskController@update');
+
 return $router;

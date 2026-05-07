@@ -68,4 +68,15 @@ class TaskController
             ]);
         }
     }
+
+    public function update($id)
+    {
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        $updated = $this->task->update($id, $data);
+
+        echo json_encode([
+            "success" => $updated
+        ]);
+    }
 }
