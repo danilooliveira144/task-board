@@ -25,6 +25,11 @@ class Router
         $this->addRoute('DELETE', $route, $action);
     }
 
+    public function put($route, $action)
+    {
+        $this->addRoute('PUT', $route, $action);
+    }
+
     public function dispatch($method, $uri)
     {
         $uri = parse_url($uri, PHP_URL_PATH);

@@ -51,4 +51,25 @@ class Task
             ':id' => $id
         ]);
     }
+
+    public function update($id, $data)
+    {
+        $query = $this->db->prepare("
+            UPDATE tasks
+            SET
+                title = :title,
+                description = :description,
+                data_inicio = :data_inicio,
+                data_fim = :data_fim
+            WHERE id = :id
+        ");
+
+        return $query->execute([
+            ':title' => $data['title'],
+            ':description' => $data['description'],
+            ':data_inicio' => $data['data_inicio'],
+            ':data_fim' => $data['data_fim'],
+            ':id' => $id
+        ]);
+    }
 }
