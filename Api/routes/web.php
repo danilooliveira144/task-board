@@ -11,6 +11,6 @@ $router->post('/tasks', 'TaskController@store');
 
 $router->get('/tasks', 'TaskController@index');
 
-$router->get('/tasks', 'TaskController@index');
+$router->delete('/tasks/{id}', 'TaskController@destroy');
 
 return $router;

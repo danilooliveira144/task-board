@@ -51,4 +51,21 @@ class TaskController
             "data" => $tasks
         ]);
     }
+
+    public function destroy($id)
+    {
+        $deleted = $this->task->delete($id);
+
+        if ($deleted) {
+            echo json_encode([
+                "success" => true,
+                "message" => "Tarefa excluída com sucesso"
+            ]);
+        } else {
+            echo json_encode([
+                "success" => false,
+                "message" => "Erro ao excluir tarefa"
+            ]);
+        }
+    }
 }
