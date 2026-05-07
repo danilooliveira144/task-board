@@ -42,4 +42,13 @@ class Task
         $query = $this->db->query("SELECT * FROM tasks ORDER BY id DESC");
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function delete($id)
+    {
+        $query = $this->db->prepare("DELETE FROM tasks WHERE id = :id");
+
+        return $query->execute([
+            ':id' => $id
+        ]);
+    }
 }

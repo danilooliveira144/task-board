@@ -6,38 +6,60 @@ class Router
 {
     private $routes = [];
 
-    public function get($uri, $action)
+    private function addRoute($method, $route, $action)
     {
-        $this->routes['GET'][$uri] = $action;
+        $this->routes[$method][$route] = $action;
+    }
+    public function get($route, $action)
+    {
+        $this->addRoute('GET', $route, $action);
     }
 
-    public function post($uri, $action)
+        public function post($route, $action)
     {
-        $this->routes['POST'][$uri] = $action;
+        $this->addRoute('POST', $route, $action);
+    }
+
+    public function delete($route, $action)
+    {
+        $this->addRoute('DELETE', $route, $action);
     }
 
     public function dispatch($method, $uri)
     {
         $uri = parse_url($uri, PHP_URL_PATH);
 
-        if (!isset($this->routes[$method][$uri])) {
-            http_response_code(404);
+        if (!isset($this->routes[$method])) {
             echo json_encode([
                 "success" => false,
                 "message" => "Rota não encontrada"
             ]);
             return;
         }
+        foreach ($this->routes[$method] as $route => $action) {
+            $pattern = preg_replace('/\{id\}/', '([0-9]+)', $route);
 
-        $action = $this->routes[$method][$uri];
+            $pattern = "#^" . $pattern . "$#";
 
-        // separa Controller@method
-        list($controller, $method) = explode('@', $action);
+            if (preg_match($pattern, $uri, $matches)) {
+                array_shift($matches);
 
-        $controller = "App\\Controllers\\{$controller}";
+                [$controller, $methodAction] = explode('@', $action);
 
-        $instance = new $controller();
+                $controller = "App\\Controllers\\{$controller}";
 
-        $instance->$method();
-    }
+                $controllerInstance = new $controller();
+
+                call_user_func_array(
+                    [$controllerInstance, $methodAction],
+                    $matches
+                );
+                return;    
+            }
+        }
+        echo json_encode([
+            "success" => false,
+            "message" => "Rota não encontrada"
+        ]);
+    }   
 }
