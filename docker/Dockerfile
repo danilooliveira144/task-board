@@ -2,16 +2,21 @@ FROM php:8.4-cli
 
 WORKDIR /var/www
 
+# Instala dependências do sistema
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip
+
 # Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copia arquivos
 COPY . .
 
-# Instala dependências
+# Instala dependências PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Comandos Laravel
+# Laravel
 RUN php artisan package:discover --ansi
 
 # Permissões
