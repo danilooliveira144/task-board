@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+
+    container_name: laravel_app
+
+    working_dir: /var/www
+
+    volumes:
+      - ..:/var/www
+      - vendor_data:/var/www/vendor
+
+    ports:
+      - "8000:8000"
+
+    command: >
+      sh -c "
+      composer install &&
+      php artisan key:generate &&
+      php artisan package:discover &&
+      php artisan serve --host=0.0.0.0 --port=8000
+      "
+
+volumes:
+  vendor_data:
