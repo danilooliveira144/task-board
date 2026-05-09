@@ -1,20 +1,22 @@
-FROM php:8.4.6-fpm
-
-# Instalar dependências do sistema
-RUN apt-get update && apt-get install -y \
-    git curl zip unzip libzip-dev libsqlite3-dev
-
-# Extensões PHP necessárias
-RUN docker-php-ext-install pdo pdo_sqlite zip
-
-# Composer
-COPY --from=composer:2.9.7 /usr/bin/composer /usr/bin/composer
+FROM php:8.2-cli
 
 WORKDIR /var/www
 
+# Instala Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copia arquivos
 COPY . .
 
+# Instala dependências
+RUN composer install --no-dev --optimize-autoloader
+
+# Comandos Laravel
 RUN php artisan package:discover --ansi
 
 # Permissões
 RUN chmod -R 775 storage bootstrap/cache
+
+EXPOSE 8000
+
+CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
