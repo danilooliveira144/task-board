@@ -1,5 +1,5 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\Api\TaskController;
 
-Route::post('/tasks', [TaskController::class, 'store']);
+Route::name('api.')->apiResource('tasks', TaskController::class);
