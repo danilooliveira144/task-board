@@ -29,6 +29,7 @@ RUN chmod -R 775 storage bootstrap/cache
 
 # Cache Laravel
 RUN php artisan package:discover --ansi
+RUN php artisan migrate --force
 
 EXPOSE 8000
 
