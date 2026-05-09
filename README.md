@@ -16,7 +16,7 @@
 ---
 
 ## Objetivo da Aplicação
-Criar tarefas diárias para organização pessoal.
+O objetivo do sistema é ajudar na organização e no gerenciamento de tarefas do dia a dia, permitindo que o usuário acompanhe suas atividades de forma simples, rápida e organizada.
 
 ---
 
@@ -80,23 +80,21 @@ Criar tarefas diárias para organização pessoal.
 - Cadastrar tarefas  
 - Editar tarefas  
 - Excluir tarefas  
-- Listar tarefas  
-- Filtrar tarefas por título  
+- Listar tarefas   
 
 ---
 
 ## Arquitetura
 Divisão de camadas da aplicação:
 
-![Modelo da arquitetura do sistema em camadas](./Web/assets/img/imagem_arquitetura_camadas.png)
+![Modelo da arquitetura do sistema em camadas](./Web/assets/img/arquitetura_camadas.jpeg)
 
 ---
 
 ## Telas / Componentes Principais
 - Tela de criação de tarefa  
 - Tela de lista de tarefas  
-- Tela de detalhe da tarefa  
-- Filtros de busca  
+- Tela de detalhe da tarefa 
 
 ---
 
@@ -111,6 +109,14 @@ Divisão de camadas da aplicação:
 ![telas do projeto](./Web/assets/img/tela.png)
 
 ---
+
+## Próximas features
+- Migrar o Front-end para React.
+- Adicionar filtro com busca por titulo, data de criação, data de inicio e data fim.
+- Adicionar tipos de ordenação na lista de tarefas.
+- Adicionar status de A fazer,  Em andamento, Atrasado e Concluido.
+- Adicionar autenticação com tela de login e cadastro de usuário.
+- Adicionar categorias na criação de tarefas.
 
 ## 🐳 Rodando o projeto com Docker
 
