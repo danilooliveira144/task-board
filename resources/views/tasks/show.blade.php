@@ -1,31 +1,36 @@
 @extends('layouts.app')
 
-@section('title', 'Detalhe da Tarefa')
+@section('title', 'Detalhes da Tarefa')
 
 @section('content')
 
-<h1>Tela de detalhe da tarefa</h1>
+<div class="dark-card p-5">
 
-<div class="details-title">
-    {{ $task->title }}
-</div>
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+        <div>
+            <h1 class="fw-bold">{{ $task->title }}</h1>
+            <p class="text-secondary mb-0">
+                {{ $task->data_inicio }} - {{ $task->data_fim }}
+            </p>
+        </div>
 
-<div class="details-box">
-    {{ $task->description }}
-</div>
+        <div class="d-flex gap-2">
+            <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning">
+                Editar  <i class="bi bi-pencil-fill"></i>
+            </a>
 
-<div class="date-box">
-    {{ $task->start_date }} até {{ $task->end_date }}
-</div>
+            <a href="{{ route('tasks.index') }}" class="btn btn-secondary">
+                Voltar
+            </a>
+        </div>
+    </div>
 
-<div class="details-actions">
-    <a href="{{ route('tasks.index') }}" class="btn">
-        Voltar
-    </a>
+    <div class="details-box">
+        <p class="mb-0 fs-5">
+            {{ $task->description }}
+        </p>
+    </div>
 
-    <a href="{{ route('tasks.edit', $task->id) }}" class="btn">
-        Editar
-    </a>
 </div>
 
 @endsection

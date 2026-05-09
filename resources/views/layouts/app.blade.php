@@ -1,187 +1,112 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-        <head>
-        <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
 
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
         body {
-            background: #f4f4f4;
-            padding: 40px;
-            color: #222;
+            background: #121212;
+            color: #f1f1f1;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            border: 2px solid #333;
+        .main-container {
+            max-width: 1100px;
+            margin: 40px auto;
             padding: 30px;
         }
 
-        h1 {
-            margin-bottom: 25px;
-            font-size: 32px;
+        .dark-card {
+            background: #1e1e1e;
+            border: 1px solid #2f2f2f;
+            border-radius: 16px;
+            box-shadow: 0 0 10px rgba(13,110,253,.35);
         }
 
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
+        .custom-input::placeholder {
+            color: #aaa;
         }
 
-        .project-name {
-            border: 2px solid #333;
-            padding: 12px;
-            width: 250px;
-            background: #fafafa;
+        .task-card {
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 14px;
+            transition: .2s;
+            box-shadow: 0 4px 14px rgba(0,0,0,.35);
         }
 
-        .filter-box {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #333;
-            margin-bottom: 25px;
-        }
-
-        .task-list {
-            border: 2px solid #333;
-            min-height: 400px;
-            padding: 20px;
-        }
-
-        .task-item {
-            border: 2px solid #333;
-            padding: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            gap: 15px;
-        }    
-
-        .task-actions {
-            display: flex;
-            gap: 10px;
+        .task-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0,0,0,.45);
         }
 
         .btn {
-            border: 2px solid #333;
-            background: #fff;
-            padding: 10px 18px;
-            cursor: pointer;
-            text-decoration: none;
-            color: #222;
-            display: inline-block;
-            transition: 0.2s;
+            border-radius: 10px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,.35);
         }
 
-        .btn:hover {
-            background: #e9e9e9;
+        .btn-primary {
+            background: #0d6efd;
+            border: none;
         }
 
-        .form-container {
-            display: flex;
-            justify-content: center;
+        .btn-success {
+            background: #198754;
+            border: none;
         }
 
-        .task-form {
-            width: 320px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
+        .btn-danger {
+            background: #dc3545;
+            border: none;
         }
 
-        .input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #333;
+        .btn-warning {
+            background: #ffc107;
+            border: none;
+            color: #000;
         }
 
-        textarea.input {
-            resize: none;
-            height: 180px;
-        }
-
-        .form-actions {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
+        .btn-secondary {
+            background: #495057;
+            border: none;
         }
 
         .details-box {
-            border: 2px solid #333;
-            padding: 20px;
-            min-height: 300px;
-            margin: 20px 0;
-            background: #fafafa;
-        }
-
-        .details-title {
-            border: 2px solid #333;
-            padding: 12px;
-            text-align: center;
-            margin-bottom: 20px;
-            background: #fff;
-        }
-
-        .date-box {
-            border: 2px solid #333;
-            padding: 12px;
-            text-align: center;
-            margin-bottom: 20px;
-            background: #fff;
-        }
-
-        .details-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-
-            .top-bar,
-            .task-item,
-            .form-actions,
-            .details-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .project-name {
-                width: 100%;
-            }
-
-            .task-actions {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .btn {
-                text-align: center;
-            }
+            background: #252525;
+            border-radius: 14px;
+            padding: 25px;
+            border: 1px solid #343434;
+            box-shadow: 0 5px 18px rgba(0,0,0,.4);
         }
     </style>
 </head>
 <body>
-
-<div class="container">
+<nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.FRr6BxL244MtvQqAVxMFZgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Task Board
+          </a>
+        </div>
+      </nav>
+<div class="container main-container"> 
     @yield('content')
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
