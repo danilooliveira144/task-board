@@ -2,25 +2,33 @@ FROM php:8.4-cli
 
 WORKDIR /var/www
 
-# Instala dependências do sistema
+# Dependências do sistema
 RUN apt-get update && apt-get install -y \
     git \
     unzip
 
-# Instala Composer
+# Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copia arquivos
+# Copia projeto
 COPY . .
 
 # Instala dependências PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Laravel
-RUN php artisan package:discover --ansi
+# Cria pastas necessárias do Laravel
+RUN mkdir -p \
+    storage/framework/views \
+    storage/framework/cache \
+    storage/framework/sessions \
+    storage/logs \
+    bootstrap/cache
 
 # Permissões
 RUN chmod -R 775 storage bootstrap/cache
+
+# Cache Laravel
+RUN php artisan package:discover --ansi
 
 EXPOSE 8000
 
