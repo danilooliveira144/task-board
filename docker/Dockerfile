@@ -12,16 +12,6 @@ COPY --from=composer:2.9.7 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
-# Copiar projeto
-COPY composer.json composer.lock ./
-
-# Instalar dependências
-RUN composer install \
-    --no-interaction \
-    --no-dev \
-    --optimize-autoloader\
-    --no-scripts
-
 COPY . .
 
 RUN php artisan package:discover --ansi
